@@ -110,11 +110,11 @@ export const ui = {
     'education.kicker': 'Formazione',
     'education.title': 'Cosa ho studiato.',
 
-    'education.master.title': 'Master in Marketing',
+    'education.master.title': 'Laurea Magistrale in Marketing',
     'education.master.school': 'Seconda Università degli Studi di Napoli',
     'education.master.period': '2014 - 2016',
     'education.master.description':
-      'Master di II livello focalizzato su marketing strategico, comportamento del consumatore e marketing digitale.',
+      'Laurea magistrale focalizzata su marketing strategico, comportamento del consumatore e marketing digitale.',
 
     'education.sdaBocconi.title': 'MDA - Microsoft Dynamics Academy',
     'education.sdaBocconi.school': 'SDA Bocconi',
@@ -249,7 +249,7 @@ export const ui = {
     'education.master.school': 'Seconda Università degli Studi di Napoli',
     'education.master.period': '2014 - 2016',
     'education.master.description':
-      'Second-level master’s degree focused on strategic marketing, consumer behaviour and digital marketing.',
+      'Master’s degree (Laurea Magistrale) focused on strategic marketing, consumer behaviour and digital marketing.',
 
     'education.sdaBocconi.title': 'MDA - Microsoft Dynamics Academy',
     'education.sdaBocconi.school': 'SDA Bocconi',
