@@ -49,6 +49,10 @@ jobs:
           git checkout --orphan deploy
           git rm -rf . > /dev/null 2>&1 || true
 
+          # Wipe untracked files (node_modules/, .astro/, etc.) so the
+          # deploy branch contains nothing but the built site.
+          git clean -fdx
+
           # Bring the build artefacts back in.
           cp -R /tmp/site-dist/. .
           touch .nojekyll

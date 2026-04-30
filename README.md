@@ -75,31 +75,6 @@ Il flusso a regime è automatico: ogni push su `main` triggera GitHub Actions, c
 
 ### Setup iniziale (una volta sola)
 
-#### 0. Attiva il workflow GitHub Actions
-
-Il workflow è già scritto e pronto in `_pending-workflows/deploy.yml`. Va spostato in `.github/workflows/deploy.yml` per essere riconosciuto da GitHub Actions. Due modi per farlo:
-
-**Modo veloce (via GitHub web)** — non richiede di toccare nulla in locale:
-
-1. Vai su `https://github.com/mariodg90/personal-website-mdg`.
-2. Clicca **Add file** → **Create new file**.
-3. Nel campo del nome scrivi: `.github/workflows/deploy.yml` (i caratteri `/` creano automaticamente le sottocartelle).
-4. Apri `_pending-workflows/deploy.yml` dal repo, copia tutto il contenuto e incollalo nel nuovo file.
-5. Commit con messaggio "Enable deploy workflow" direttamente sul branch `main`.
-
-**Modo locale** — richiede di rinnovare lo scope del token gh:
-
-```bash
-gh auth refresh -s workflow
-mkdir -p .github/workflows
-git mv _pending-workflows/deploy.yml .github/workflows/deploy.yml
-rmdir _pending-workflows
-git commit -m "Enable deploy workflow"
-git push
-```
-
-Una volta attivato, puoi cancellare la cartella `_pending-workflows/` (o lasciarla, è ignorata da GitHub Actions).
-
 #### 1. Verifica che il workflow GitHub Actions sia attivo
 
 Dopo il primo push su `main`, vai su `https://github.com/mariodg90/personal-website-mdg/actions` e controlla che il workflow **"Build & publish to deploy branch"** sia partito e abbia creato il branch `deploy`.
