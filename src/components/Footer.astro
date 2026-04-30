@@ -1,0 +1,29 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="hairline mt-32">
+  <div class="container-page py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-sm text-[color:var(--color-muted)]">
+    <p>{t('footer.copyright', { year })}</p>
+    <div class="flex items-center gap-6">
+      <a href="https://www.linkedin.com/in/digirolamomario/" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--color-fg)] transition-colors">
+        LinkedIn
+      </a>
+      <a href="https://www.boosha.it" target="_blank" rel="noopener noreferrer" class="hover:text-[color:var(--color-fg)] transition-colors">
+        Boosha
+      </a>
+      <a href="mailto:mario@boosha.it" class="hover:text-[color:var(--color-fg)] transition-colors">
+        Email
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,39 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  altPath: string;
+  altLabel: string;
+}
+
+const { lang, altPath, altLabel } = Astro.props;
+const t = useTranslations(lang);
+const base = lang === 'it' ? '' : '/en';
+---
+
+<header class="sticky top-0 z-40 backdrop-blur-md bg-[color:var(--color-bg)]/80 border-b border-[color:var(--color-line)]">
+  <div class="container-page flex items-center justify-between py-4">
+    <a
+      href={lang === 'it' ? '/' : '/en/'}
+      class="font-serif text-lg tracking-tight hover:opacity-70 transition-opacity"
+    >
+      Mario Di Girolamo
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm text-[color:var(--color-muted)]">
+      <a href={`${base}/#about`} class="hover:text-[color:var(--color-fg)] transition-colors">{t('nav.about')}</a>
+      <a href={`${base}/#experience`} class="hover:text-[color:var(--color-fg)] transition-colors">{t('nav.experience')}</a>
+      <a href={`${base}/#education`} class="hover:text-[color:var(--color-fg)] transition-colors">{t('nav.education')}</a>
+      <a href={`${base}/#boosha`} class="hover:text-[color:var(--color-fg)] transition-colors">{t('nav.boosha')}</a>
+      <a href={`${base}/#contact`} class="hover:text-[color:var(--color-fg)] transition-colors">{t('nav.contact')}</a>
+    </nav>
+    <a
+      href={altPath}
+      class="text-sm tracking-wide uppercase border border-[color:var(--color-line)] px-3 py-1.5 rounded-full hover:border-[color:var(--color-fg)] transition-colors"
+      aria-label={`Switch to ${altLabel}`}
+    >
+      {altLabel}
+    </a>
+  </div>
+</header>

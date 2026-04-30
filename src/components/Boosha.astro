@@ -1,0 +1,67 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const pillars = [
+  { titleKey: 'boosha.pillars.agents.title', bodyKey: 'boosha.pillars.agents.body' },
+  { titleKey: 'boosha.pillars.assistants.title', bodyKey: 'boosha.pillars.assistants.body' },
+  { titleKey: 'boosha.pillars.consulting.title', bodyKey: 'boosha.pillars.consulting.body' },
+  { titleKey: 'boosha.pillars.training.title', bodyKey: 'boosha.pillars.training.body' },
+] as const;
+
+const clients = ['CNA', 'Save the Children', 'Coldiretti', 'Hera', 'Allianz', 'Coesiva'];
+---
+
+<section id="boosha" class="bg-[color:var(--color-fg)] text-[color:var(--color-bg)] reveal">
+  <div class="container-page py-20 md:py-32">
+    <div class="grid md:grid-cols-12 gap-10 md:gap-16">
+      <div class="md:col-span-5">
+        <p class="text-sm tracking-[0.18em] uppercase text-[color:var(--color-accent-soft)] mb-4">
+          {t('boosha.kicker')}
+        </p>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-8">
+          {t('boosha.title')}
+        </h2>
+        <p class="text-lg text-[color:var(--color-bg)]/80 leading-relaxed mb-10 max-w-md">
+          {t('boosha.lede')}
+        </p>
+        <a
+          href="https://www.boosha.it"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[color:var(--color-bg)] text-[color:var(--color-fg)] px-6 py-3 rounded-full text-sm font-medium hover:opacity-85 transition-opacity"
+        >
+          {t('boosha.cta')}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="md:col-span-7 grid sm:grid-cols-2 gap-8">
+        {pillars.map((p) => (
+          <div class="border-t border-[color:var(--color-bg)]/20 pt-6">
+            <h3 class="font-serif text-xl mb-2">{t(p.titleKey as any)}</h3>
+            <p class="text-sm text-[color:var(--color-bg)]/70 leading-relaxed">{t(p.bodyKey as any)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-20 pt-10 border-t border-[color:var(--color-bg)]/20">
+      <p class="text-sm tracking-[0.18em] uppercase text-[color:var(--color-accent-soft)] mb-6">
+        {t('boosha.clients.label')}
+      </p>
+      <ul class="flex flex-wrap items-center gap-x-10 gap-y-4 text-lg md:text-xl font-serif text-[color:var(--color-bg)]/85">
+        {clients.map((c) => (
+          <li>{c}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>

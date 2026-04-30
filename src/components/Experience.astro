@@ -1,0 +1,53 @@
+---
+import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="experience" class="container-page py-20 md:py-28 reveal">
+  <div class="grid md:grid-cols-12 gap-10 md:gap-16">
+    <div class="md:col-span-4">
+      <p class="text-sm tracking-[0.18em] uppercase text-[color:var(--color-muted)] mb-4">
+        {t('experience.kicker')}
+      </p>
+      <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight">
+        {t('experience.title')}
+      </h2>
+    </div>
+    <div class="md:col-span-7 md:col-start-6">
+      <ol class="space-y-12">
+        <li class="grid grid-cols-[110px_1fr] gap-6 md:gap-10">
+          <span class="text-sm text-[color:var(--color-muted)] pt-1.5 tabular-nums">
+            {t('experience.boosha.period')}
+          </span>
+          <div>
+            <h3 class="font-serif text-2xl mb-1">{t('experience.boosha.role')}</h3>
+            <p class="text-[color:var(--color-accent)] font-medium mb-3">{t('experience.boosha.company')}</p>
+            <p class="text-[color:var(--color-fg)]/80 leading-relaxed">
+              {t('experience.boosha.description')}
+            </p>
+          </div>
+        </li>
+
+        <li class="grid grid-cols-[110px_1fr] gap-6 md:gap-10 opacity-60 border-l-2 border-dashed border-[color:var(--color-line)] pl-4 -ml-4">
+          <span class="text-sm text-[color:var(--color-muted)] pt-1.5 tabular-nums">
+            {t('experience.placeholderPeriod')}
+          </span>
+          <div>
+            <h3 class="font-serif text-2xl mb-1">{t('experience.placeholderRole')}</h3>
+            <p class="text-[color:var(--color-accent)] font-medium mb-3">{t('experience.placeholderCompany')}</p>
+            <p class="text-[color:var(--color-fg)]/80 leading-relaxed">
+              {t('experience.placeholderDescription')}
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
