@@ -1,5 +1,6 @@
 ---
 import type { Lang } from '../i18n/ui';
+import { educationOrder } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
 
 interface Props {
@@ -21,18 +22,24 @@ const t = useTranslations(lang);
       </h2>
     </div>
     <div class="md:col-span-7 md:col-start-6">
-      <div class="grid grid-cols-[110px_1fr] gap-6 md:gap-10 opacity-60 border-l-2 border-dashed border-[color:var(--color-line)] pl-4 -ml-4">
-        <span class="text-sm text-[color:var(--color-muted)] pt-1.5 tabular-nums">
-          {t('education.placeholderPeriod')}
-        </span>
-        <div>
-          <h3 class="font-serif text-2xl mb-1">{t('education.placeholderTitle')}</h3>
-          <p class="text-[color:var(--color-accent)] font-medium mb-3">{t('education.placeholderSchool')}</p>
-          <p class="text-[color:var(--color-fg)]/80 leading-relaxed">
-            {t('education.placeholderDescription')}
-          </p>
-        </div>
-      </div>
+      <ol class="space-y-10">
+        {educationOrder.map((id) => (
+          <li class="grid grid-cols-[110px_1fr] gap-6 md:gap-10">
+            <span class="text-sm text-[color:var(--color-muted)] pt-1.5 tabular-nums">
+              {t(`education.${id}.period` as any)}
+            </span>
+            <div>
+              <h3 class="font-serif text-2xl mb-1">{t(`education.${id}.title` as any)}</h3>
+              <p class="text-[color:var(--color-accent)] font-medium mb-3">
+                {t(`education.${id}.school` as any)}
+              </p>
+              <p class="text-[color:var(--color-fg)]/80 leading-relaxed">
+                {t(`education.${id}.description` as any)}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </div>
   </div>
 </section>

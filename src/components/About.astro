@@ -32,11 +32,15 @@ const expertise: Array<keyof typeof import('../i18n/ui').ui.it> = [
       <p>{t('about.p2')}</p>
       <p>{t('about.p3')}</p>
 
+      <blockquote class="font-serif italic text-xl md:text-2xl text-[color:var(--color-accent)] border-l-2 border-[color:var(--color-accent)] pl-5 my-8 leading-snug">
+        {t('about.quote')}
+      </blockquote>
+
       <div class="pt-6 mt-6 hairline">
         <p class="text-sm tracking-[0.18em] uppercase text-[color:var(--color-muted)] mb-4">
           {t('about.expertise.title')}
         </p>
-        <ul class="space-y-2 text-base">
+        <ul class="space-y-2 text-base mb-8">
           {expertise.map((key) => (
             <li class="flex items-start gap-3">
               <span class="mt-2 inline-block w-3 h-px bg-[color:var(--color-accent)]"></span>
@@ -44,6 +48,21 @@ const expertise: Array<keyof typeof import('../i18n/ui').ui.it> = [
             </li>
           ))}
         </ul>
+
+        <dl class="grid sm:grid-cols-2 gap-x-8 gap-y-4 text-base">
+          <div>
+            <dt class="text-sm tracking-[0.12em] uppercase text-[color:var(--color-muted)] mb-1">
+              {t('about.languages.title')}
+            </dt>
+            <dd>{t('about.languages.value')}</dd>
+          </div>
+          <div>
+            <dt class="text-sm tracking-[0.12em] uppercase text-[color:var(--color-muted)] mb-1">
+              {t('about.location.title')}
+            </dt>
+            <dd>{t('about.location.value')}</dd>
+          </div>
+        </dl>
       </div>
     </div>
   </div>
